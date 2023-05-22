@@ -67,6 +67,46 @@ class BlueToothHandler {
     );
     _stillWriting = false;
   }
+
+  bool keepPartying = true;
+  Future<void> partyTime() async {
+    keepPartying = true;
+    while (keepPartying){
+      for (int i=100; i<256; i++){
+        await writeLED(Color.fromARGB(0, i, 0, 0));
+      }
+
+      for (int i=255; i>100; i--){
+        await writeLED(Color.fromARGB(0, i, 0, 0));
+      }
+
+      for (int i=100; i<256; i++){
+        await writeLED(Color.fromARGB(0, 0, i, 0));
+      }
+
+      for (int i=255; i>100; i--){
+        await writeLED(Color.fromARGB(0, 0, i, 0));
+      }
+
+      for (int i=100; i<256; i++){
+        await writeLED(Color.fromARGB(0, i, 0, 0));
+      }
+
+      for (int i=255; i>100; i--){
+        await writeLED(Color.fromARGB(0, i, 0, 0));
+      }
+
+      for (int i=100; i<256; i++){
+        await writeLED(Color.fromARGB(0, 0, 0, i));
+      }
+
+      for (int i=255; i>100; i--){
+        await writeLED(Color.fromARGB(0, 0, 0, i));
+      }
+    }
+  }
+
+  void stopParty() {keepPartying = false;}
 }
 
 class ID {

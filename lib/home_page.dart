@@ -24,15 +24,29 @@ class _HomePage extends State<HomePage>{
     BlueToothHandler().writeLED(color);
   }
 
+  partyTime() {BlueToothHandler().partyTime();}
+  stopParty() {BlueToothHandler().stopParty();}
+
   @override
   Widget build(BuildContext context) {
-    return ColorPicker(
-      pickerColor: pickerColor,
-      onColorChanged: changeColor,
-      labelTypes: const [ColorLabelType.rgb],
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ColorPicker(
+          pickerColor: pickerColor,
+          onColorChanged: changeColor,
+          labelTypes: const [ColorLabelType.rgb],
+        ),
+        ElevatedButton(
+            onPressed: (){partyTime();},
+            child: const Text("Party Time!!")),
+        ElevatedButton(
+            onPressed: (){stopParty();},
+            child: const Text("Stop the party :(")),
+      ],
     );
   }
-
 
 
 }
